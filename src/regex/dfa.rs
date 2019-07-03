@@ -12,11 +12,13 @@ pub struct DfaBuilder {
     cache: HashMap<Vec<usize>, usize>,
 }
 
+#[derive(Clone)]
 pub struct Dfa {
     insts: Vec<Inst>,
     states: Vec<State>,
 }
 
+#[derive(Clone)]
 struct State {
     insts: Vec<usize>,
     next: [Option<usize>; 256],

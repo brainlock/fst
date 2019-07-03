@@ -57,12 +57,13 @@ pub use self::error::Error;
 /// crate will grow facilities for detecting regular expressions that will
 /// scan a large portion of a transducer and optionally disallow them.
 ///
+#[derive(Clone)]
 pub struct Regex {
     original: String,
     dfa: dfa::Dfa,
 }
 
-#[derive(Eq, PartialEq)]
+#[derive(Eq, PartialEq, Clone)]
 pub enum Inst {
     Match,
     Jump(usize),
